@@ -1,435 +1,458 @@
-/* ======================= GENERAL STYLES & RESET ======================= */
+/* --- 1. Base Styles & Variables --- */
+:root {
+    --color-primary: #5d4a3c; /* Dark Brown/Accent */
+    --color-secondary: #92755e; /* Medium Brown */
+    --color-bg-light: #d8d3c9; /* Light Beige Background */
+    --color-bg-white: #ffffff;
+    --color-text-dark: #333;
+    --color-text-light: #fff;
+    --color-border: #ccc;
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    color: #333;
-    background-color: #f7f5f2; /* Light background for the main page area */
+    font-family: var(--font-body);
     line-height: 1.6;
+    color: var(--color-text-dark);
+    background-color: var(--color-bg-light);
 }
 
-/* Base link reset */
 a {
-    color: inherit;
     text-decoration: none;
+    color: inherit;
 }
 
-/* ======================= HEADER STYLING ======================= */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+    color: var(--color-text-dark);
+}
 
-header {
-    background-color: #d1c6b8; /* Top banner color */
-    color: #333;
+section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+button {
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+/* Placeholder for missing images */
+.visual-placeholder {
+    background-color: #c0bcb4;
+    height: 300px;
+    border-radius: 8px;
+}
+.visual-placeholder.large {
+    height: 400px;
+}
+
+/* --- 2. Navigation Header --- */
+.main-header {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 50px;
-    height: 70px;
-    position: sticky; /* Keep header at the top */
-    top: 0;
-    z-index: 100;
 }
 
-header .logo {
-    font-size: 1.25rem;
-    font-weight: 500;
+.logo {
+    font-size: 1.5em;
+    font-weight: 700;
     display: flex;
     align-items: center;
 }
 
-header .logo span {
-    font-size: 1.5rem;
-    margin-right: 8px;
+.logo-icon {
+    font-size: 1.2em;
+    margin-right: 5px;
+    color: var(--color-bg-light);
 }
 
-header nav a {
+.main-nav .nav-link {
     margin-left: 20px;
-    font-size: 1rem;
-    font-weight: 400;
-    color: #333;
-}
-header nav a:hover {
-    color: #a0784a;
+    font-size: 1em;
+    opacity: 0.8;
 }
 
-/* ======================= HERO SECTION (Top Banner) ======================= */
+.main-nav .nav-link:hover {
+    opacity: 1;
+}
 
+/* --- 3. Hero Section --- */
 .hero-section {
-    padding: 0 50px;
-    /* Use viewport height to make the first section prominent */
-    min-height: calc(100vh - 70px); 
-    background-color: #f7f5f2;
+    background-color: var(--color-bg-light);
+    padding: 80px 20px;
 }
 
-.hero-content {
-    display: flex;
-    height: 100%;
-    max-width: 1400px; 
-    margin: 0 auto; 
+.hero-content-wrapper {
+    display: grid;
+    /* Define grid columns for large screen: Text Area (2fr), Visual Area (3fr), Sidebar (1fr) */
+    grid-template-columns: 2fr 3fr 1fr;
+    gap: 30px;
+    align-items: center;
 }
 
-/* 1. Left Text Area */
 .text-area {
-    flex: 2;
-    padding-right: 50px;
-    padding-top: 50px; /* Added padding for spacing */
-    padding-bottom: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding-right: 20px;
 }
 
 .text-area h1 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 3rem;
-    font-weight: 800;
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.text-area h2 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 2.75rem;
+    font-size: 1.8em;
     font-weight: 600;
-    color: #5d5d5d;
-    line-height: 1;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
-.text-area h2:nth-child(3) {
-    color: #333; /* Targeting SMARTER. */
+.revision-word {
+    font-size: 3.5em;
+    font-weight: 800;
+    color: var(--color-secondary);
+    margin: -10px 0; /* Tighten the spacing between lines */
 }
 
 .text-area p {
-    font-size: 1.1rem;
-    color: #5d5d5d;
-    margin-top: 30px;
-    max-width: 450px;
-}
-
-/* Buttons */
-.actions {
-    margin-top: 30px;
-    display: flex;
-    gap: 15px;
+    margin: 20px 0;
+    font-size: 1.1em;
 }
 
 .actions button {
     padding: 12px 25px;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    font-size: 1em;
+    margin-right: 15px;
 }
 
 .primary-btn {
-    background-color: #a0784a; 
-    color: white;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
 }
 
 .secondary-btn {
-    background-color: #f7f5f2;
-    color: #a0784a;
-    border: 1px solid #a0784a;
+    background-color: transparent;
+    border-color: var(--color-primary);
+    color: var(--color-primary);
 }
 
-.primary-btn:hover {
-    background-color: #8c673d;
-}
-
-.secondary-btn:hover {
-    background-color: #f0f0f0;
-}
-
-/* 2. Middle Image Area */
-.visual-area {
-    flex: 2.5; 
-    background-color: #d1c6b8; /* Placeholder color */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-    /* Set height to match the tallest neighbor for flex alignment */
-    min-height: 100%; 
-}
-
-/* 3. Right Sidebar */
 .sidebar {
-    flex: 1;
-    background-color: #1a1a1a; 
-    color: white;
-    padding: 40px 20px;
-    display: flex;
-    align-items: center; 
-    justify-content: center;
-    text-align: center;
-}
-
-.sidebar-content {
-    max-width: 200px;
+    background-color: var(--color-bg-white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .icon-ring {
     width: 50px;
     height: 50px;
-    border: 2px solid white;
+    border: 2px solid var(--color-secondary);
     border-radius: 50%;
-    margin: 0 auto 20px;
     display: flex;
-    align-items: center;
     justify-content: center;
-}
-
-.icon-ring span {
-    font-size: 1.5rem;
-}
-
-.sidebar h3 {
-    font-size: 1.15rem;
-    font-weight: 700;
+    align-items: center;
     margin-bottom: 10px;
+    font-size: 1.5em;
+    color: var(--color-secondary);
 }
 
-.sidebar p {
-    font-size: 0.9rem;
-    color: #ccc;
-    line-height: 1.4;
-}
-
-/* ======================= FEATURES SECTION (4 Columns) ======================= */
-
+/* --- 4. Features Section (Grid) --- */
 .features-section {
-    display: flex; 
-    width: 100%;
-    min-height: 450px; 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding-top: 20px;
 }
 
 .feature-card {
-    flex: 1; 
-    padding: 50px 30px;
+    padding: 25px;
+    border-radius: 8px;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 250px; /* Ensure visual consistency */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between; 
+    justify-content: space-between;
 }
 
-/* Background Color Classes */
-.f-bg-light {
-    background-color: #e6e0d8; /* Light taupe/beige background */
-    color: #333;
+.f-bg-light { background-color: #f0ebe4; }
+.f-bg-white { background-color: var(--color-bg-white); }
+.f-bg-dark { 
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
 }
 
-.f-bg-white {
-    background-color: #fcfbf8; /* Near-white/cream background */
-    color: #333;
-}
-
-.f-bg-dark {
-    background-color: #a0784a; /* Dark brown/terracotta background */
-    color: white;
-}
-
-/* Icon Styling */
 .feature-card .icon {
-    font-size: 3rem;
-    margin-bottom: 25px;
-    color: #a0784a; 
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: var(--color-primary);
 }
 
-.f-bg-dark .icon {
-    color: white;
-}
+.f-bg-dark .icon { color: var(--color-bg-light); }
 
 .feature-card h3 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .feature-card p {
-    font-size: 1rem;
-    margin-bottom: 30px;
-    max-width: 250px; 
+    font-size: 0.95em;
+    margin-bottom: 15px;
     flex-grow: 1;
 }
 
-/* Button Styling (Specific to this section) */
-.feature-card .btn {
-    padding: 10px 20px;
+.btn-border {
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    padding: 8px 15px;
+    width: 100%;
     border-radius: 4px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    cursor: pointer;
-    background: transparent;
-    transition: all 0.3s;
 }
 
-.feature-card .btn-border {
-    border: 1px solid #a0784a; 
-    color: #a0784a;
-}
-
-.feature-card .btn-border:hover {
-    background-color: #a0784a;
-    color: white;
-}
-
-/* ======================= STUDY METHODS SECTION (2 Columns) ======================= */
-
+/* --- 5. Study Methods Section (2 Columns) --- */
 .study-methods-section {
     display: flex;
-    width: 100%;
-    min-height: 500px;
+    gap: 50px;
+    align-items: center;
+    padding: 80px 20px;
 }
 
-/* 1. Left Text Column */
-.study-methods-section .text-column {
+.text-column {
     flex: 1;
-    background-color: #f0eee9; /* Light, off-white background */
-    padding: 80px 70px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
-.study-methods-section h2 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #333;
-    line-height: 1.2;
+.visual-column {
+    flex: 1;
+}
+
+.text-column h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.intro-text {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+.method-list .method-item {
+    display: flex;
+    align-items: flex-start;
     margin-bottom: 25px;
 }
 
-.study-methods-section .intro-text {
-    font-size: 1.05rem;
-    color: #5d5d5d;
-    margin-bottom: 30px;
-    max-width: 400px;
-}
-
-/* List Styling (Custom Bullets) */
-.method-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 20px;
-}
-
 .bullet-point {
-    width: 6px;
-    height: 6px;
-    background-color: #a0784a; 
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-secondary);
     border-radius: 50%;
-    margin-top: 8px; 
+    margin-top: 8px;
     margin-right: 15px;
     flex-shrink: 0;
 }
 
 .method-title {
     font-weight: 600;
-    color: #333;
-    margin-bottom: 3px;
-    font-size: 1rem;
+    margin-bottom: 5px;
+    color: var(--color-primary);
 }
 
-.method-description {
-    font-size: 0.95rem;
-    color: #5d5d5d;
-}
-
-/* 2. Right Visual Column */
-.visual-column {
-    flex: 1;
-    background-color: #d1c6b8; /* Placeholder color */
-}
-
-/* ======================= FOOTER STYLING ======================= */
-
+/* --- 6. Footer --- */
 footer {
-    background-color: #e6e0d8; 
-    color: #5d5d5d; 
-    padding: 50px 0 20px 0; 
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 40px 20px 20px 20px;
 }
 
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 50px; 
 }
 
 .footer-cols {
     display: flex;
-    justify-content: flex-start; 
-    gap: 80px; 
-    padding-bottom: 40px;
+    justify-content: space-between;
+    gap: 30px;
 }
 
-.col {
-    flex-shrink: 0; 
-}
-
-.brand-info {
-    width: 35%; 
+.footer-cols .col {
+    flex-basis: 33%;
 }
 
 .brand-info .logo {
-    display: flex;
-    align-items: center;
     margin-bottom: 10px;
-    color: #a0784a; 
-    font-size: 1.2rem;
-    font-weight: 500;
 }
 
-.logo-icon {
-    font-size: 1.5rem;
-    margin-right: 8px;
+.footer-cols h4 {
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--color-bg-light);
 }
 
-.brand-info p {
-    font-size: 0.95rem;
-    color: #5d5d5d;
-}
-
-.col h4 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #333; 
-    margin-bottom: 20px;
-}
-
-.col ul {
+.footer-cols ul {
     list-style: none;
-    padding: 0;
 }
 
-.col li {
+.footer-cols li {
     margin-bottom: 8px;
 }
 
-.col a {
-    color: #5d5d5d;
-    font-size: 0.95rem;
-}
-
-.col a:hover {
-    color: #a0784a;
+.footer-link:hover {
+    text-decoration: underline;
 }
 
 .separator {
-    border: none;
-    border-top: 1px solid #a0784a; 
-    opacity: 0.7;
-    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 30px 0;
 }
 
 .copyright {
     text-align: center;
-    padding-top: 15px;
+    font-size: 0.9em;
+    opacity: 0.7;
 }
 
-.copyright p {
-    font-size: 0.85rem;
-    color: #5d5d5d;
+/* ======================================= */
+/* --- RESPONSIVENESS (Media Queries) --- */
+/* ======================================= */
+
+/* Tablets and larger phones (up to 992px) */
+@media (max-width: 992px) {
+    /* Hero Section */
+    .hero-content-wrapper {
+        /* Stack the sidebar below the main content on smaller screens */
+        grid-template-columns: 2fr 3fr; 
+        grid-template-areas: 
+            "text visual"
+            "sidebar sidebar";
+    }
+
+    .sidebar {
+        grid-area: sidebar;
+        margin-top: 20px;
+    }
+
+    /* Feature Cards */
+    .features-section {
+        /* Two columns per row */
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+/* Small devices (up to 768px) */
+@media (max-width: 768px) {
+    /* Hero Section */
+    .hero-content-wrapper {
+        /* Stack everything in one column */
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "text"
+            "visual"
+            "sidebar";
+        gap: 20px;
+    }
+    
+    .text-area {
+        text-align: center;
+        padding-right: 0;
+    }
+
+    .revision-word {
+        font-size: 2.5em;
+    }
+    
+    .actions {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .actions button {
+        margin: 0;
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+
+    /* Features */
+    .features-section {
+        /* Still two columns, maybe larger text */
+        gap: 15px;
+    }
+
+    /* Study Methods */
+    .study-methods-section {
+        /* Stack columns vertically */
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    /* Footer */
+    .footer-cols {
+        /* Stack footer columns */
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-cols .col {
+        flex-basis: auto;
+    }
+}
+
+/* Very small devices (up to 480px) */
+@media (max-width: 480px) {
+    .main-header {
+        padding: 10px 15px;
+    }
+
+    .logo {
+        font-size: 1.3em;
+    }
+
+    .main-nav .nav-link {
+        margin-left: 10px;
+    }
+
+    .features-section {
+        /* Single column for features */
+        grid-template-columns: 1fr;
+    }
+}
+.visual-area {
+    /* 1. Set the image path */
+    background-image: url('path/to/your/image.jpg'); 
+
+    /* 2. Mandatory: Set dimensions for the div to be visible */
+    height: 300px;
+    width: 100%;
+    
+    /* 3. Essential properties for control (Recommended) */
+    
+    /* Ensures the image covers the entire area without repeating */
+    background-size: cover; 
+    
+    /* Centers the image within the element */
+    background-position: center; 
+    
+    /* Prevents the image from tiling/repeating if the element is larger than the image */
+    background-repeat: no-repeat; 
+
+    /* Optional: Style the text inside the banner */
+    color: white;
+    text-align: center;
+    padding-top: 100px; 
+}
+.logo-icon {
+    font-size: 50px; /* Use font-size to control the size of text/symbol icons */
+    /* You might also need to set line-height or margin for vertical alignment */
 }
