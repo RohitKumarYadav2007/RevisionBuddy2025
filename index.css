@@ -1,0 +1,435 @@
+/* ======================= GENERAL STYLES & RESET ======================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: #f7f5f2; /* Light background for the main page area */
+    line-height: 1.6;
+}
+
+/* Base link reset */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ======================= HEADER STYLING ======================= */
+
+header {
+    background-color: #d1c6b8; /* Top banner color */
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    height: 70px;
+    position: sticky; /* Keep header at the top */
+    top: 0;
+    z-index: 100;
+}
+
+header .logo {
+    font-size: 1.25rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+header .logo span {
+    font-size: 1.5rem;
+    margin-right: 8px;
+}
+
+header nav a {
+    margin-left: 20px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #333;
+}
+header nav a:hover {
+    color: #a0784a;
+}
+
+/* ======================= HERO SECTION (Top Banner) ======================= */
+
+.hero-section {
+    padding: 0 50px;
+    /* Use viewport height to make the first section prominent */
+    min-height: calc(100vh - 70px); 
+    background-color: #f7f5f2;
+}
+
+.hero-content {
+    display: flex;
+    height: 100%;
+    max-width: 1400px; 
+    margin: 0 auto; 
+}
+
+/* 1. Left Text Area */
+.text-area {
+    flex: 2;
+    padding-right: 50px;
+    padding-top: 50px; /* Added padding for spacing */
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-area h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.text-area h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.75rem;
+    font-weight: 600;
+    color: #5d5d5d;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.text-area h2:nth-child(3) {
+    color: #333; /* Targeting SMARTER. */
+}
+
+.text-area p {
+    font-size: 1.1rem;
+    color: #5d5d5d;
+    margin-top: 30px;
+    max-width: 450px;
+}
+
+/* Buttons */
+.actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.actions button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.primary-btn {
+    background-color: #a0784a; 
+    color: white;
+}
+
+.secondary-btn {
+    background-color: #f7f5f2;
+    color: #a0784a;
+    border: 1px solid #a0784a;
+}
+
+.primary-btn:hover {
+    background-color: #8c673d;
+}
+
+.secondary-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* 2. Middle Image Area */
+.visual-area {
+    flex: 2.5; 
+    background-color: #d1c6b8; /* Placeholder color */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    /* Set height to match the tallest neighbor for flex alignment */
+    min-height: 100%; 
+}
+
+/* 3. Right Sidebar */
+.sidebar {
+    flex: 1;
+    background-color: #1a1a1a; 
+    color: white;
+    padding: 40px 20px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+}
+
+.sidebar-content {
+    max-width: 200px;
+}
+
+.icon-ring {
+    width: 50px;
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-ring span {
+    font-size: 1.5rem;
+}
+
+.sidebar h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.sidebar p {
+    font-size: 0.9rem;
+    color: #ccc;
+    line-height: 1.4;
+}
+
+/* ======================= FEATURES SECTION (4 Columns) ======================= */
+
+.features-section {
+    display: flex; 
+    width: 100%;
+    min-height: 450px; 
+}
+
+.feature-card {
+    flex: 1; 
+    padding: 50px 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; 
+}
+
+/* Background Color Classes */
+.f-bg-light {
+    background-color: #e6e0d8; /* Light taupe/beige background */
+    color: #333;
+}
+
+.f-bg-white {
+    background-color: #fcfbf8; /* Near-white/cream background */
+    color: #333;
+}
+
+.f-bg-dark {
+    background-color: #a0784a; /* Dark brown/terracotta background */
+    color: white;
+}
+
+/* Icon Styling */
+.feature-card .icon {
+    font-size: 3rem;
+    margin-bottom: 25px;
+    color: #a0784a; 
+}
+
+.f-bg-dark .icon {
+    color: white;
+}
+
+.feature-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    max-width: 250px; 
+    flex-grow: 1;
+}
+
+/* Button Styling (Specific to this section) */
+.feature-card .btn {
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    background: transparent;
+    transition: all 0.3s;
+}
+
+.feature-card .btn-border {
+    border: 1px solid #a0784a; 
+    color: #a0784a;
+}
+
+.feature-card .btn-border:hover {
+    background-color: #a0784a;
+    color: white;
+}
+
+/* ======================= STUDY METHODS SECTION (2 Columns) ======================= */
+
+.study-methods-section {
+    display: flex;
+    width: 100%;
+    min-height: 500px;
+}
+
+/* 1. Left Text Column */
+.study-methods-section .text-column {
+    flex: 1;
+    background-color: #f0eee9; /* Light, off-white background */
+    padding: 80px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.study-methods-section h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.study-methods-section .intro-text {
+    font-size: 1.05rem;
+    color: #5d5d5d;
+    margin-bottom: 30px;
+    max-width: 400px;
+}
+
+/* List Styling (Custom Bullets) */
+.method-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.bullet-point {
+    width: 6px;
+    height: 6px;
+    background-color: #a0784a; 
+    border-radius: 50%;
+    margin-top: 8px; 
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.method-title {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 3px;
+    font-size: 1rem;
+}
+
+.method-description {
+    font-size: 0.95rem;
+    color: #5d5d5d;
+}
+
+/* 2. Right Visual Column */
+.visual-column {
+    flex: 1;
+    background-color: #d1c6b8; /* Placeholder color */
+}
+
+/* ======================= FOOTER STYLING ======================= */
+
+footer {
+    background-color: #e6e0d8; 
+    color: #5d5d5d; 
+    padding: 50px 0 20px 0; 
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px; 
+}
+
+.footer-cols {
+    display: flex;
+    justify-content: flex-start; 
+    gap: 80px; 
+    padding-bottom: 40px;
+}
+
+.col {
+    flex-shrink: 0; 
+}
+
+.brand-info {
+    width: 35%; 
+}
+
+.brand-info .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #a0784a; 
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.logo-icon {
+    font-size: 1.5rem;
+    margin-right: 8px;
+}
+
+.brand-info p {
+    font-size: 0.95rem;
+    color: #5d5d5d;
+}
+
+.col h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333; 
+    margin-bottom: 20px;
+}
+
+.col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.col li {
+    margin-bottom: 8px;
+}
+
+.col a {
+    color: #5d5d5d;
+    font-size: 0.95rem;
+}
+
+.col a:hover {
+    color: #a0784a;
+}
+
+.separator {
+    border: none;
+    border-top: 1px solid #a0784a; 
+    opacity: 0.7;
+    margin: 20px 0;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 15px;
+}
+
+.copyright p {
+    font-size: 0.85rem;
+    color: #5d5d5d;
+}
